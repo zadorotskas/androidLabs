@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">lab 1</string>
+    <string name="text_for_layout_1">Some text</string>
+    <string name="content_description_for_layout_1">Some text again</string>
+    <string name="text_for_checkbox">I am Checkbox</string>
+    <string name="just_long_text">Android is a mobile operating system based on a modified version 
+        of the Linux kernel and other open source software, designed primarily for touchscreen mobile 
+        devices such as smartphones and tablets. Android is developed by a consortium of developers 
+        known as the Open Handset Alliance and commercially sponsored by Google. It was unveiled 
+        in November 2007, with the first commercial Android device, the HTC Dream, being launched 
+        in September 2008.</string>
+    <string name="content_descriptor_for_avatar">Avatar</string>
+    <string name="button">I am Button </string>
+    <string name="content_descriptor_for_button">ImageButton</string>
+</resources>
