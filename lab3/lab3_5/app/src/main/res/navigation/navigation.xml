@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/fragment_1">
+
+    <fragment
+        android:id="@+id/fragment_1"
+        android:name="com.zadorotskas.lab3_5.Fragment1"
+        android:label="fragment_1"
+        tools:layout="@layout/fragment_1">
+        <action
+            android:id="@+id/action_1_to_2"
+            app:destination="@id/fragment_2" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_2"
+        android:name="com.zadorotskas.lab3_5.Fragment2"
+        android:label="fragment_2"
+        tools:layout="@layout/fragment_2">
+        <action
+            android:id="@+id/action_2_to_3"
+            app:destination="@id/fragment_3" />
+        <action
+            android:id="@+id/action_2_to_1"
+            app:destination="@id/fragment_1"
+            app:popUpTo="@id/fragment_1" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_3"
+        android:name="com.zadorotskas.lab3_5.Fragment3"
+        android:label="fragment_3"
+        tools:layout="@layout/fragment_3">
+        <action
+            android:id="@+id/action_3_to_1"
+            app:destination="@id/fragment_1"
+            app:popUpTo="@id/fragment_1" />
+        <action
+            android:id="@+id/action_3_to_2"
+            app:destination="@id/fragment_2"
+            app:popUpTo="@id/fragment_2" />
+    </fragment>
+    <activity
+        android:id="@+id/about"
+        android:name="com.zadorotskas.lab3_5.ActivityAbout"
+        android:label="activity_about"
+        tools:layout="@layout/activity_about" />
+    <action
+        android:id="@+id/action_about"
+        app:destination="@id/about" />
+</navigation>
