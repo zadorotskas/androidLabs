@@ -7,8 +7,7 @@ import androidx.test.espresso.Espresso.pressBack
 import androidx.test.espresso.NoActivityResumedException
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
-import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.junit.Assert.fail
@@ -123,6 +122,45 @@ class NavigationTest {
         exit()
     }
 
+    @Test
+    fun testNavigationUpFromSecond() {
+        launch()
+
+        moveFromFirstToSecond()
+        navigateUp(R.id.fragment1)
+
+        exit()
+    }
+
+    @Test
+    fun testNavigationUpFromThird() {
+        launch()
+
+        moveFromFirstToSecond()
+        moveFromSecondToThird()
+
+        navigateUp(R.id.fragment2)
+        navigateUp(R.id.fragment1)
+
+        exit()
+    }
+
+
+    @Test
+    fun testNavigationUpFromAbout() {
+        launch()
+
+        moveFromFirstToSecond()
+        moveFromSecondToThird()
+        moveToAbout()
+
+        navigateUp(R.id.fragment3)
+        navigateUp(R.id.fragment2)
+        navigateUp(R.id.fragment1)
+
+        exit()
+    }
+
     private fun moveFromFirstToSecond() {
         move(R.id.bnToSecond, R.id.fragment2)
     }
@@ -141,6 +179,11 @@ class NavigationTest {
 
     private fun move(buttonId: Int, destinationId: Int) {
         onView(withId(buttonId)).perform(click())
+        onView(withId(destinationId)).check(matches(isDisplayed()))
+    }
+
+    private fun navigateUp(destinationId: Int) {
+        onView(withContentDescription(R.string.nav_app_bar_navigate_up_description)).perform(click())
         onView(withId(destinationId)).check(matches(isDisplayed()))
     }
 
